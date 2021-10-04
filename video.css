@@ -1,0 +1,122 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#animatedBackground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("bg.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+/*adjust s value for speed*/
+  animation: animatedBackground 500s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+/*use negative width if you want it to flow right to left else and positive for left to right*/
+  to {
+    background-position: 0 -10000px;
+  }
+}
+
+
+
+#container { position: relative; width: 530px; margin: 0 0; padding: 2px; }
+#myImg { height: 100px; width: 200px; float: left; }
+#textContainer { position: absolute; left: 200px; top: 50px; height: 1.3em; width: 200px; display: none; }
+#textbox {width: 98%; }
+#more-content-to-right { float: left; height: 100px; width: 300px; }
+#more-content-below { clear: both; height: 100px; width: 508px; }
+.bordered { border: 1px solid gray; margin: 3px;}
+
+.wrapps{
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	text-align: center;
+	margin: 2vw;
+	z-index: -1;
+}
+
+.wrap{
+	display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  grid-auto-rows: minmax(auto, auto); 
+  line-height: 1.1;
+  text-align: right;
+  text-align: justify;
+  z-index: 1;
+}
+
+
+.flier {
+	pointer-events: none;
+}
+
+.flier > * {
+/* Adjust animation duration to change the element’s speed */
+        animation: fly 5s linear infinite;
+        pointer-events: none !important;
+	top: 0;
+	left: 0;
+	transform: translateX(-120%) translateY(-120%) rotateZ(0);
+	position: fixed;
+	animation-delay: 1s;
+	z-index: 999999;
+}
+
+ /* Keyframe values control where the element will begin
+    and end its trajectory across the screen. Each rule
+    represents a path the element follows across the screen. */
+
+
+@keyframes fly {
+
+	 0% {
+                display: block;
+		transform: translateX(10vw) translateY(1vh) rotateZ(0deg)
+	}
+
+	100% {
+		transform: translateX(10vw) translateY(100vh) rotateZ(180deg)
+	}
+}
+.flier2 > * {
+	/* Adjust animation duration to change the element’s speed */
+			animation: flyy 3s linear infinite;
+			pointer-events: none !important;
+		top: 0;
+		left: 0;
+		transform: translateX(-120%) translateY(-120%) rotateZ(0);
+		position: fixed;
+		animation-delay: 1s;
+		z-index: 999999;
+	}
+	
+	 /* Keyframe values control where the element will begin
+		and end its trajectory across the screen. Each rule
+		represents a path the element follows across the screen. */
+	
+	
+	@keyframes flyy {
+	
+		 0% {
+					display: block;
+			transform: translateX(20vw) translateY(1vh) rotateZ(0deg)
+		}
+	
+		100% {
+			transform: translateX(20vw) translateY(100vh) rotateZ(180deg)
+		}
+	}
+	
